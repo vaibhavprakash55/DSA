@@ -1,26 +1,26 @@
-// wave array
+// Move all zero at end
 import java.util.Scanner;
-public class wave {
+public class movezeo {
   public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     System.out.println("Enter size of array: ");
     int n = in.nextInt();
-    int [] arr = new int[n]; 
+    int[] arr = new int[n];
     System.out.println("Enter elements: ");
     for(int i=0;i<n;i++){
       arr[i] = in.nextInt();
     }
-   
-    for(int i=0;i<n;i=i+2){
-      if(i==n-1){
-        break;
+    for(int i=0;i<n-1;i++){
+      for(int j=0;j<n-i-1;j++){
+        if(arr[j]==0){
+          int temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
       }
-      int temp = arr[i];
-      arr[i] = arr[i+1];
-      arr[i+1] = temp;
     }
-    for(int ele:arr){
-      System.out.print(ele+" ");
+    for(int i=0;i<n;i++){
+      System.out.print(arr[i]+" ");
     }
   }
   
